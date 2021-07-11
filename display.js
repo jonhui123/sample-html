@@ -386,3 +386,28 @@ function loadHHGTTG() {
 gameData=base64DecToArr(hhgttg).buffer;
 do_start();
 }
+
+function loadSS() {
+gameData=base64DecToArr(seastalker).buffer;
+do_start();
+}
+
+function loadW() {
+gameData=base64DecToArr(witness).buffer;
+do_start();
+}
+
+function loadPF() {
+gameData=base64DecToArr(planetfall).buffer;
+do_start();
+}
+
+function loadCT() {
+gameData=base64DecToArr(cutthroats).buffer;
+do_start();
+}
+
+function loadBH() {
+gameData=base64DecToArr(ballyhoo).buffer;
+do_start();
+}
