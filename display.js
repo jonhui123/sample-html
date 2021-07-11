@@ -21,10 +21,22 @@ function setSaveLocation(x) {
   elem("ss3").style.background=null;
   elem("ss4").style.background=null;
   elem("ss5").style.background=null;
+  elem("ss6").style.background=null;
+/*
+  elem("ss7").style.background=null;
+  elem("ss8").style.background=null;
+  elem("ss9").style.background=null;
+  elem("ss10").style.background=null;
+*/
   elem("ss" + x).style.background=cBkg;
   saveLocation=x;
   elem("command").focus();
 }
+
+function saveSaveToFile(x) {
+  download(saveGames[x],"savegame" + (x-5) + ".z3s","text/plain");
+}
+  
 
 /* Array of bytes to Base64 string decoding */
 
@@ -203,10 +215,16 @@ function do_key(ev) {
 
 function story_save(x) {
   saveGames[saveLocation]=x;
+  if (saveLocation>5) {
+     saveSaveToFile(saveLocation);
+  }
   return true;
 }
 
 function story_restore() {
+  if (saveLocation>5) {
+	readSave();
+  }
   return saveGames[saveLocation];
 }
 
@@ -239,6 +257,17 @@ function file_changed() {
   x.readAsArrayBuffer(elem("story").files[0]);
   return true;
 }
+
+function readSave() {
+  var x=new FileReader();
+  x.onload=function(){
+	saveGames[saveLocation]=new Uint8Array(x.result);
+  }
+  x.readAsArrayBuffer(elem("restorestory").files[0]);
+  elem("command").focus();
+}
+
+  
 
 function ready_to_start(e) {
   var a;

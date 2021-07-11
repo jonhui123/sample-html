@@ -4,6 +4,7 @@
   <meta http-equiv="content-type" content="text/html;charset=us-ascii">
   <title>JavaScript Z-Machine</title>
   <script src="games.js"></script>
+  <script src="download.js"></script>
   <script src="jszm_old.js"></script>
   <script src="display.js"></script>
   <style>
@@ -54,6 +55,21 @@
     #ss5 {
       float: right;
     }
+    #ss6 {
+      float: right;
+    }
+    #ss7 {
+      float: right;
+    }
+    #ss8 {
+      float: right;
+    }
+    #ss9 {
+      float: right;
+    }
+    #ss10 {
+      float: right;
+    }
     #status {
       background-color: #CCCCCC;
       color: #000000;
@@ -101,13 +117,16 @@
 </head>
 <body onload="return screen_resize();" onresize="return screen_resize();">
   <table id="screen">
-    <tr><td id="filediv"><input type=file id="story" onchange="return file_changed();" autocomplete="off">
+    <tr><td id="filediv">
+      <input type=file id="story" onchange="return file_changed();" autocomplete="off">
+      <input type=file id="restorestory" onchange="return readSave();" autocomplete="off">
       <button id="start" onclick="return do_start();">Start</button>
-      <button id="ss5" onclick="return setSaveLocation(5);">5</button>
-      <button id="ss4" onclick="return setSaveLocation(4);">4</button>
-      <button id="ss3" onclick="return setSaveLocation(3);">3</button>
-      <button id="ss2" onclick="return setSaveLocation(2);">2</button>
-      <button id="ss1" onclick="return setSaveLocation(1);">1</button>
+      <button id="ss6" onclick="return setSaveLocation(6);">F</button>
+      <button id="ss5" onclick="return setSaveLocation(5);">M5</button>
+      <button id="ss4" onclick="return setSaveLocation(4);">M4</button>
+      <button id="ss3" onclick="return setSaveLocation(3);">M3</button>
+      <button id="ss2" onclick="return setSaveLocation(2);">M2</button>
+      <button id="ss1" onclick="return setSaveLocation(1);">M1</button>
       <button id="start2" onclick="return loadWB();">WishBringer</button>
       <button id="start2" onclick="return loadHHGTTG();">HHGTTG</button>
       <button id="start2" onclick="return loadZ3();">ZorkIII</button>
