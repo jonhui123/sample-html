@@ -352,3 +352,8 @@ function loadWB() {
 gameData=base64DecToArr(wishBringer).buffer;
 do_start();
 }
+
+function loadHHGTTG() {
+gameData=base64DecToArr(hhgttg).buffer;
+do_start();
+}
