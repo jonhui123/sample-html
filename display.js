@@ -436,3 +436,9 @@ gameData=base64DecToArr(lgop).buffer;
 saveGameName="lgoPhobos";
 do_start();
 }
+
+function loadENCH() {
+gameData=base64DecToArr(ench).buffer;
+saveGameName="ench";
+do_start();
+}
