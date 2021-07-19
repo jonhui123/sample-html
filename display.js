@@ -430,3 +430,9 @@ gameData=base64DecToArr(ballyhoo).buffer;
 saveGameName="ballyhoo";
 do_start();
 }
+
+function loadLGOP() {
+gameData=base64DecToArr(lgop).buffer;
+saveGameName="lgoPhobos";
+do_start();
+}
