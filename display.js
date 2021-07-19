@@ -13,6 +13,7 @@ var saveGame=null;
 var saveLocation=1;
 var saveGames=[];
 var cBkg="#00FF00";
+var saveGameName="zork1";
 
 
 function setSaveLocation(x) {
@@ -33,8 +34,16 @@ function setSaveLocation(x) {
   elem("command").focus();
 }
 
+function pad2(n) { return n < 10 ? '0' + n : n }
+
+
+alert( date.getFullYear().toString() + pad2(date.getMonth() + 1) + pad2( date.getDate()) + pad2( date.getHours() ) + pad2( date.getMinutes() ) + pad2( date.getSeconds() ) );
+
 function saveSaveToFile(x) {
-  download(saveGames[x],"savegame" + (x-5) + ".z3s","text/plain");
+  var date = new Date();
+  var ymd =  date.getFullYear().toString() + pad2(date.getMonth() + 1) + pad2( date.getDate()) + pad2( date.getHours() ) + pad2( date.getMinutes() ) + pad2( date.getSeconds() ) ;
+  // download(saveGames[x],"savegame" + (x-5) + ".z3s","text/plain");
+  download(saveGames[x],saveGameName + "-" + ymd + ".z3s","text/plain");
 }
   
 
@@ -364,50 +373,60 @@ function story_status_time(title,hours,minutes) {
 
 function loadZ1() {
 gameData=base64DecToArr(zork1).buffer;
+saveGameName="zork1";
 do_start();
 }
 
 function loadZ2() {
 gameData=base64DecToArr(zork2).buffer;
+saveGameName="zork2";
 do_start();
 }
 
 function loadZ3() {
 gameData=base64DecToArr(zork3).buffer;
+saveGameName="zork3";
 do_start();
 }
 
 function loadWB() {
 gameData=base64DecToArr(wishBringer).buffer;
+saveGameName="wishbringer";
 do_start();
 }
 
 function loadHHGTTG() {
 gameData=base64DecToArr(hhgttg).buffer;
+saveGameName="hhgttg";
 do_start();
 }
 
 function loadSS() {
 gameData=base64DecToArr(seastalker).buffer;
+saveGameName="seastalker";
 do_start();
 }
 
 function loadW() {
 gameData=base64DecToArr(witness).buffer;
+saveGameName="witness";
 do_start();
 }
 
 function loadPF() {
 gameData=base64DecToArr(planetfall).buffer;
+saveGameName="planetfall";
 do_start();
 }
 
 function loadCT() {
 gameData=base64DecToArr(cutthroats).buffer;
+saveGameName="cutthroats";
 do_start();
 }
 
 function loadBH() {
 gameData=base64DecToArr(ballyhoo).buffer;
+saveGameName="ballyhoo";
 do_start();
 }
