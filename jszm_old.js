@@ -294,7 +294,8 @@ JSZM.prototype={
         mem[objects+x*9+5]=mem[objects+y*9+6]; // x.next=y.first
         mem[objects+y*9+6]=x; // y.first=x
       } else {
-        this.put(objects+x*9+5,0); // x.first=x.next=0
+        // this.put(objects+x*9+5,0); // x.first=x.next=0
+        mem[objects+x*9+5]=0; // x.next=0
       }
     };
     opfetch=(x,y) => {
@@ -346,9 +347,6 @@ JSZM.prototype={
       if(x==0) ds.push(y);
       else if(x<16) cs[0].local[x-1]=y;
       else this.put(globals+2*x,y);
-    };
-    usl=() => {
-      if(this.updateStatusLine) this.updateStatusLine(this.getText(this.getu(objects+xfetch(16)*9+7)+1),xfetch(18),xfetch(17));
     };
     xfetch=(x) => {
       if(x==0) return ds[ds.length-1];
@@ -579,7 +577,7 @@ JSZM.prototype={
           yield*this.genPrint("\n");
           break;
         case 188: // USL
-          usl();
+          if(this.updateStatusLine) this.updateStatusLine(this.getText(this.getu(objects+xfetch(16)*9+7)+1),xfetch(18),xfetch(17));
           break;
         case 189: // VERIFY
           predicate(this.verify());
@@ -611,7 +609,7 @@ JSZM.prototype={
           break;
         case 228: // READ
           yield*this.genPrint("");
-          usl();
+          if(this.updateStatusLine) this.updateStatusLine(this.getText(this.getu(objects+xfetch(16)*9+7)+1),xfetch(18),xfetch(17));
           this.handleInput((yield mem[op0&65535]),op0&65535,op1&65535);
           break;
         case 229: // PRINTC
