@@ -453,3 +453,9 @@ gameData=base64DecToArr(spll).buffer;
 saveGameName="spll";
 do_start();
 }
+
+function loadLURK() {
+gameData=base64DecToArr(lurking).buffer;
+saveGameName="lurk";
+do_start();
+}
