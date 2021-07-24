@@ -8,6 +8,7 @@
   <script src="jszm_old.js"></script>
   <script src="display.js"></script>
   <style>
+
     @keyframes cursor {
       from {
         visibility: normal;
@@ -74,15 +75,7 @@
     }
     #ss7 {
       float: right;
-    }
-    #ss8 {
-      float: right;
-    }
-    #ss9 {
-      float: right;
-    }
-    #ss10 {
-      float: right;
+      font-size: 10px;
     }
     #status {
       background-color: #CCCCCC;
@@ -141,18 +134,73 @@
       <button id="ss3" onclick="return setSaveLocation(3);">M3</button>
       <button id="ss2" onclick="return setSaveLocation(2);">M2</button>
       <button id="ss1" onclick="return setSaveLocation(1);">M1</button>
-      <button id="start2" onclick="return loadENCH();">Enchtr</button>
-      <button id="start2" onclick="return loadLGOP();">LGOPhbs</button>
-      <button id="start2" onclick="return loadCT();">CtThrts</button>
-      <button id="start2" onclick="return loadBH();">Bllyh</button>
-      <button id="start2" onclick="return loadSS();">SeaStlkr</button>
-      <button id="start2" onclick="return loadW();">Wtnss</button>
-      <button id="start2" onclick="return loadPF();">Plntfll</button>
-      <button id="start2" onclick="return loadWB();">WshBrngr</button>
-      <button id="start2" onclick="return loadHHGTTG();">HHGTTG</button>
-      <button id="start2" onclick="return loadZ3();">Z3</button>
-      <button id="start2" onclick="return loadZ2();">Z2</button>
-      <button id="start2" onclick="return loadZ1();">Z1</button></td></tr>
+
+      <select name="game" id="ss7">
+	<option value="0">Select Game</option>
+	<option value="0">-------------</option>
+	<option value="1">BallyHoo</option>
+	<option value="2">CutThroats</option>
+	<option value="3">Enchanter</option>
+	<option value="13">Sorcerer</option>
+	<option value="14">SpellBreaker</option>
+	<option value="4">HitchHikers Guide</option>
+	<option value="5">Leather Goddesses</option>
+	<option value="6">PlanetFall</option>
+	<option value="7">SeaStalker</option>
+	<option value="8">WishBringer</option>
+	<option value="9">Witness</option>
+	<option value="10">Zork I</option>
+	<option value="11">Zork II</option>
+	<option value="12">Zork III</option>
+      </select>
+
+      <script>
+	var gameSel = document.getElementById("ss7");
+	gameSel.onchange = function() {
+		var strGame=gameSel.value;
+		if (strGame==1) return loadBH();
+		if (strGame==2) return loadCT();
+		if (strGame==3) return loadENCH();
+		if (strGame==4) return loadHHGTTG();
+		if (strGame==5) return loadLGOP();
+		if (strGame==6) return loadPF();
+		if (strGame==7) return loadSS();
+		if (strGame==8) return loadWB();
+		if (strGame==9) return loadW();
+		if (strGame==10) return loadZ1();
+		if (strGame==11) return loadZ2();
+		if (strGame==12) return loadZ3();
+		if (strGame==13) return loadSORC();
+		if (strGame==14) return loadSPLL();
+	}
+      </script>
+</div>
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+
+
+    </td></tr>
     <tr><td id="status">0</td></tr>
     <tr id="textrow"><td id="textcell"><div id="text"></div></td></tr>
     <tr><td><input autocomplete="off" id="command" placeholder="" onkeydown="return do_key(event);" autofocus></td></tr>
