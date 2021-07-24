@@ -37,7 +37,6 @@ function setSaveLocation(x) {
 function pad2(n) { return n < 10 ? '0' + n : n }
 
 
-alert( date.getFullYear().toString() + pad2(date.getMonth() + 1) + pad2( date.getDate()) + pad2( date.getHours() ) + pad2( date.getMinutes() ) + pad2( date.getSeconds() ) );
 
 function saveSaveToFile(x) {
   var date = new Date();
@@ -440,5 +439,17 @@ do_start();
 function loadENCH() {
 gameData=base64DecToArr(ench).buffer;
 saveGameName="ench";
+do_start();
+}
+
+function loadSORC() {
+gameData=base64DecToArr(sorc).buffer;
+saveGameName="sorc";
+do_start();
+}
+
+function loadSPLL() {
+gameData=base64DecToArr(spll).buffer;
+saveGameName="spll";
 do_start();
 }
